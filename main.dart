@@ -1,16 +1,15 @@
 class Player {
-  // late final String name;
-  // late int xp;
-  // * constructor method - should be same name with class name
-  // Player(String name, int xp) {
-  //   this.name = name;
-  //   this.xp = xp;
-  // }
-
   final String name;
   int xp;
+  String team;
+  int age;
 
-  Player(this.name, this.xp);
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
 
   void sayHello() {
     print("Hello $name, nice to meet you");
@@ -18,8 +17,8 @@ class Player {
 }
 
 void main() {
-  var player = Player("Sue", 9800);
+  var player = Player(name: "Sue", xp: 9800, team: "Purple", age: 89);
   player.sayHello();
-  var player2 = Player("Jacob", 9600);
+  var player2 = Player(name: "Jacob", xp: 9999, team: "Red", age: 33);
   player2.sayHello();
 }
