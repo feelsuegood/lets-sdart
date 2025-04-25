@@ -1,24 +1,22 @@
-// List<int> reverseListOfNumbers(List<int> list){
-//   var reversed = list.reversed;
-//   return reversed.toList();
-// }
+// in Class, should set type of property
+class Player {
+  final String name = 'Sue';
+  int xp = 1999;
 
-// * typedef is for making alias for simple data structure
-// typedef ListOfInts = List<int>;
-// ListOfInts reverseListOfNumbers(ListOfInts list) {
-//   var reversed = list.reversed;
-//   return reversed.toList();
-// }
-
-// String sayHi(Map<String, String> userInfo){
-//   return "Hi ${userInfo['name']}";
-// }
-
-typedef UserInfo = Map<String, String>;
-String sayHi(UserInfo userInfo) {
-  return "Hi ${userInfo['name']}";
+  void sayHello() {
+    // no need to use $this.name
+    print("Hello $name, nice to meet you");
+    // * in case below, use ${this.name}
+    // var name ='haha';
+    // print("Hello ${this.name}, nice to meet you");
+  }
 }
 
 void main() {
-  print(sayHi({"name": "Sue"}));
+  // var player = new Player(); // new is not required
+  var player = Player();
+  // print(player.name);
+  // player.name = "sukuna";
+  // print(player.name);
+  player.sayHello();
 }
