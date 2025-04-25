@@ -1,11 +1,20 @@
-// * optional positional parameters
-// String sayHello(String name, int age, [String? country]) =>
-//     "Hello $name, you are $age years old and from $country";
+// String capitalizeName(String? name) {
+//   if (name != null) {
+//     return name.toUpperCase();
+//   }
+//   return 'ANON';
+// }
 
-String sayHello(String name, int age, [String? country = "Brazil"]) =>
-    "Hello $name, you are $age years old and from $country";
+// String capitalizeName(String? name) =>
+//     name != null ? name.toUpperCase() : "ANON";
+
+String capitalizeName(String? name) => name?.toUpperCase() ?? "ANON";
 
 void main() {
-  var result = sayHello("sukuna", 1);
-  print(result);
+  print(capitalizeName("sue"));
+
+  String? name;
+  name ??= "Sue"; //if name is null, put this value
+  name = null;
+  name ??= "Jacob";
 }
