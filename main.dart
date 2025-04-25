@@ -1,20 +1,24 @@
-// String capitalizeName(String? name) {
-//   if (name != null) {
-//     return name.toUpperCase();
-//   }
-//   return 'ANON';
+// List<int> reverseListOfNumbers(List<int> list){
+//   var reversed = list.reversed;
+//   return reversed.toList();
 // }
 
-// String capitalizeName(String? name) =>
-//     name != null ? name.toUpperCase() : "ANON";
+// * typedef is for making alias for simple data structure
+// typedef ListOfInts = List<int>;
+// ListOfInts reverseListOfNumbers(ListOfInts list) {
+//   var reversed = list.reversed;
+//   return reversed.toList();
+// }
 
-String capitalizeName(String? name) => name?.toUpperCase() ?? "ANON";
+// String sayHi(Map<String, String> userInfo){
+//   return "Hi ${userInfo['name']}";
+// }
+
+typedef UserInfo = Map<String, String>;
+String sayHi(UserInfo userInfo) {
+  return "Hi ${userInfo['name']}";
+}
 
 void main() {
-  print(capitalizeName("sue"));
-
-  String? name;
-  name ??= "Sue"; //if name is null, put this value
-  name = null;
-  name ??= "Jacob";
+  print(sayHi({"name": "Sue"}));
 }
