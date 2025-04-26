@@ -1,42 +1,25 @@
-// * abstract class can't have objfects -> provide blue prints
-// specify methods of classes that extends an abstract class
-
-abstract class Human {
-  void walk();
+class Human {
+  final String name;
+  // Human({required this.name});
+  Human(this.name);
+  void sayHello() {
+    print("Hi $name");
+  }
 }
 
 enum Team { pink, purple }
 
-enum XPLevel { biginner, intermediate, professional }
-
 class Player extends Human {
-  String name;
-  XPLevel xp;
-  Team team;
+  final Team team;
 
-  Player({required this.name, required this.xp, required this.team});
+  // Player({required this.team, required String name}):super(name: name);
+  Player({required this.team, required String name}) : super(name);
 
-  void walk() {
-    print("I'm walking");
-  }
-
+  @override
   void sayHello() {
-    print("Hello $name, nice to meet you");
+    super.sayHello();
+    print('I play for ${team}');
   }
 }
 
-class Coach extends Human {
-  void walk() {
-    print("A coach is walking");
-  }
-}
-
-void main() {
-  var sue = Player(name: 'sue', xp: XPLevel.professional, team: Team.pink);
-  var potato =
-      sue
-        ..name = 'sukuna'
-        ..xp = XPLevel.intermediate
-        ..team = Team.purple
-        ..sayHello();
-}
+void main() {}
