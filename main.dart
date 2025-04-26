@@ -1,7 +1,12 @@
+// * enum constraints choices
+enum Team { pink, purple }
+
+enum XPLevel { biginner, intermediate, professional }
+
 class Player {
   String name;
-  int xp;
-  String team;
+  XPLevel xp;
+  Team team;
 
   Player({required this.name, required this.xp, required this.team});
 
@@ -11,21 +16,11 @@ class Player {
 }
 
 void main() {
-  // var sue = Player(name: 'sue', xp: 777, team: 'pink');
-  // sue.name='sukuna';
-  // sue.xp=1111;
-  // sue.team='purple';
-
-  // var sue = Player(name: 'sue', xp: 777, team: 'pink')
-  // ..name='sukuna'
-  // ..xp=1111
-  // ..team='purple';
-
-  var sue = Player(name: 'sue', xp: 777, team: 'pink');
+  var sue = Player(name: 'sue', xp: XPLevel.professional, team: Team.pink);
   var potato =
       sue
         ..name = 'sukuna'
-        ..xp = 1111
-        ..team = 'purple'
+        ..xp = XPLevel.intermediate
+        ..team = Team.purple
         ..sayHello();
 }
