@@ -1,29 +1,13 @@
 class Player {
   final String name;
-  int xp, age;
+  int xp;
   String team;
   // int age;
 
-  // * named constuctor
-  Player({
-    required this.name,
-    required this.xp,
-    required this.team,
-    required this.age,
-  });
-
-  Player.createBluePlayer({required String name, required int age})
-    : this.name = name,
-      this.age = age,
-      this.team = 'blue',
-      this.xp = 0;
-
-  // by default, all positional parameters are required
-  Player.createRedPlayer(String name, int age)
-    : this.name = name,
-      this.age = age,
-      this.team = 'red',
-      this.xp = 0;
+  Player.fromJson(Map<String, dynamic> playerJson)
+    : name = playerJson['name'],
+      xp = playerJson['xp'],
+      team = playerJson['team'];
 
   void sayHello() {
     print("Hello $name, nice to meet you");
@@ -31,8 +15,14 @@ class Player {
 }
 
 void main() {
-  var player = Player.createRedPlayer("Sue", 89);
-  player.sayHello();
-  var player2 = Player.createBluePlayer(name: "Jacob", age: 33);
-  player2.sayHello();
+  var apiData = [
+    {"name": "sue", "team": "red", "xp": 0},
+    {"name": "john", "team": "blue", "xp": 0},
+    {"name": "cooper", "team": "green", "xp": 0},
+  ];
+
+  apiData.forEach((playerJson) {
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
 }
