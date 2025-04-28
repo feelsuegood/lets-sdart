@@ -1,3 +1,5 @@
+// *** letSueDart! ***
+
 // * mixins are classes that have no constructor
 mixin Strong {
   final double strengthLevel = 1500.99;
